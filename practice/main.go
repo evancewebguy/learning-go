@@ -39,4 +39,14 @@ func main() {
 	anInt := 42
 	var p = &anInt
 	fmt.Println("The value of p:", *p)
+
+	value11 := 42.24
+	pointer1 := &value11
+	fmt.Println("Value 11:", *pointer1)
+
+	*pointer1 = *pointer1 / 2
+	fmt.Println("Pointer 1:", *pointer1)
+
+	fmt.Println("Value 11:", value11)
+
 }
