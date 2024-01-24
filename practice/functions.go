@@ -50,6 +50,27 @@ func operation(a, b int, op func(int, int) int) int {
 
 //end of closure
 
+// Defer: schedule a function call to run after the function completes.
+func testDefer() {
+	defer fmt.Println("Defer: - This will be executed last")
+	fmt.Println("without defer: - This will be executed first")
+}
+
+// Panic: Interrupt normal execution when something unexpected happens.
+func testPanic() {
+	panic("Panic - Something went wrong")
+}
+
+// Recover: Used to gain control after a panic.
+func testRecover() {
+	defer func() {
+		if z := recover(); z != nil {
+			fmt.Println("Recovered from panic:", z)
+		}
+	}()
+	panic("Recover: - something went wrong in this panic")
+}
+
 func main() {
 	result := add(28, 5)
 
@@ -90,9 +111,18 @@ func main() {
 
 	fmt.Println(double(5))
 	fmt.Println(triple(5))
+
 	fmt.Println("---Functions as a type-----")
 
 	resultO := operation(3, 4, add)
 	fmt.Println(resultO)
 
+	fmt.Println("----Defer----")
+	testDefer()
+
+	fmt.Println("----Panic----")
+	testPanic()
+
+	fmt.Println("----Recover:----")
+	testRecover()
 }
