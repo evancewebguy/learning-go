@@ -16,8 +16,8 @@ func (r *rect) area() int {
 }
 
 // Value Receivers:
-// it operates in a copy of the value its called on.
-// doesnt modify the original value.
+// it operates in a copy of the value it's called on.
+// doesn't modify the original value.
 // mostly operate on a read only operations on the receiver.
 // Efficient for small and simple types
 func (r rect) perim() int {
